@@ -1,0 +1,13 @@
+---
+- name: Testa Ansible lokalt via inventory
+  hosts: local
+  gather_facts: no
+
+  tasks:
+    - name: Visa meddelande
+      command: echo "Körs via inventory!"
+
+    - name: Installera htop via Homebrew
+      homebrew:
+        name: htop
+        state: present

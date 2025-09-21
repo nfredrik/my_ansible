@@ -1,0 +1,24 @@
+---
+- name: Installera vanliga verktyg på macOS
+  hosts: local
+  gather_facts: no
+
+  tasks:
+    - name: Installera CLI-verktyg med Homebrew
+      homebrew:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - wget
+        - htop
+        - git
+        - tree
+
+    - name: Installera appar med Homebrew Cask
+      homebrew_cask:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - iterm2
+        - visual-studio-code
+        - google-chrome

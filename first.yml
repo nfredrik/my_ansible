@@ -1,0 +1,14 @@
+---
+- name: Testa Ansible lokalt på macOS
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Kör ett enkelt kommando
+      command: echo "Hej från Ansible på Mac!"
+
+    - name: Installera ett paket via Homebrew
+      homebrew:
+        name: wget
+        state: present
